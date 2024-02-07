@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyRow
@@ -31,12 +30,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Blue
-import androidx.compose.ui.graphics.Color.Companion.Cyan
+import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,7 +40,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.R
 import com.example.myapplication.ui.theme.MyApplicationTheme
-import com.example.myapplication.ui.theme.Purple80
 
 @Composable
 fun ProfilePg(navController: NavController) {
@@ -52,39 +47,21 @@ fun ProfilePg(navController: NavController) {
 
     Column(
         modifier = Modifier
-            .statusBarsPadding()
             .fillMaxSize()
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-
-            Column(modifier = Modifier.wrapContentSize()) {
-                val gradientColors = listOf(Cyan, Blue, Purple80)
-                var isReportClicked by remember { mutableStateOf(false) }
-                Text(
-                    text = "Hello ,",
-                    style = TextStyle(
-                        brush = Brush.linearGradient(
-                            colors = gradientColors
-                        ),
-                        fontSize = 30.sp
-                    )
-                )
-                Text(
-                    text = "Chinmay Agarwal",
-                    style = TextStyle(
-                        brush = Brush.linearGradient(
-                            colors = gradientColors
-                        ),
-                        fontSize = 30.sp
-                    )
-                )
-            }
-
+            Text(
+                text = "Hello,\nChinmay Agarwal",
+                lineHeight = 30.sp,
+                fontSize = 25.sp,
+                fontWeight = FontWeight.Bold
+            )
             Box(modifier = Modifier) {
                 Image(
                     painter = painterResource(id = R.drawable.favicon),
@@ -95,17 +72,17 @@ fun ProfilePg(navController: NavController) {
                 )
             }
         }
-
+        var isReportClicked by remember { mutableStateOf(false) }
         LazyRow(
             modifier = Modifier
-                .padding(20.dp)
+                .padding(vertical = 20.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             item {
                 DashboardCard(
                     title = "Report",
-                    iconResId = R.drawable.report,
+                    iconResId = R.drawable.rerport2,
                     onClick = { showTextBox = true }
                 )
             }
@@ -113,15 +90,15 @@ fun ProfilePg(navController: NavController) {
             item {
                 DashboardCard(
                     title = "Previous Issue",
-                    iconResId = R.drawable.record,
-                    onClick = { showTextBox=false}
+                    iconResId = R.drawable.issue2,
+                    onClick = { showTextBox = false }
                 )
             }
 
             item {
                 DashboardCard(
                     title = "Settings",
-                    iconResId = R.drawable.settings,
+                    iconResId = R.drawable.settings2,
                     onClick = { /* Add any settings logic here */ }
                 )
             }
@@ -132,26 +109,15 @@ fun ProfilePg(navController: NavController) {
             TextBoxForProblemDescription()
             SubmitReportButton()
         }
-        else{
-
-        }
     }
 }
 
 @Composable
 fun TextBoxForProblemDescription() {
     var description by remember { mutableStateOf("") }
-    val gradientColors = listOf(Cyan, Blue, Purple80)
-
     Text(
         text = "Report Issue",
-        style = TextStyle(
-            brush = Brush.linearGradient(
-                colors = gradientColors
-            )
-        ),
         fontSize = 30.sp
-
     )
 
     DropDownExample()
@@ -223,7 +189,7 @@ fun DashboardCard(title: String, iconResId: Int, onClick: () -> Unit) {
             .padding(5.dp)
             .width(160.dp)
             .height(120.dp),
-        border = BorderStroke(1.dp, Color.LightGray),
+        border = BorderStroke(3.dp, color = LightGray),
         shape = RoundedCornerShape(8.dp),
         onClick = onClick,
 

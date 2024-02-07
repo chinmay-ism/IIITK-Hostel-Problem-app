@@ -1,13 +1,11 @@
 package com.example.myapplication.pages
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -33,15 +31,15 @@ import com.example.myapplication.R
 
 
 @Composable
-fun SignUp(navController: NavController) {
+fun StaffSignup(navController: NavController) {
 
-            SignUpContent(navController)
+    StaffSignUpContent(navController)
 
 
 }
 
 @Composable
-fun SignUpContent(navController: NavController) {
+fun StaffSignUpContent(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize()) {
 
         Box(modifier = Modifier.fillMaxWidth()) {
@@ -69,23 +67,16 @@ fun SignUpContent(navController: NavController) {
                 mutableStateOf("")
             }
 
-            val roomNumber = remember {
+            val department = remember {
                 mutableStateOf("")
             }
 
-            val floorNumber = remember {
-                mutableStateOf("")
-            }
-
-            val block = remember {
-                mutableStateOf("")
-            }
             val isChecked = remember { mutableStateOf(false) }
 
 
             Text(
                 text = "SignUp",
-                style = androidx.compose.ui.text.TextStyle(fontSize = 40.sp)
+                fontSize = 40.sp
             )
 
             Spacer(modifier = Modifier.height(15.dp))
@@ -93,7 +84,7 @@ fun SignUpContent(navController: NavController) {
             TextField(
                 value = username.value,
                 onValueChange = { username.value = it },
-                label = { Text("Student College ID") }
+                label = { Text("Staff College ID") }
             )
 
             Spacer(modifier = Modifier.height(15.dp))
@@ -118,25 +109,9 @@ fun SignUpContent(navController: NavController) {
             Spacer(modifier = Modifier.height(15.dp))
 
             TextField(
-                value = roomNumber.value,
-                onValueChange = { roomNumber.value = it },
-                label = { Text("Room Number") }
-            )
-
-            Spacer(modifier = Modifier.height(15.dp))
-
-            TextField(
-                value = floorNumber.value,
-                onValueChange = { floorNumber.value = it },
-                label = { Text("Floor Number") }
-            )
-
-            Spacer(modifier = Modifier.height(15.dp))
-
-            TextField(
-                value = block.value,
-                onValueChange = { block.value = it },
-                label = { Text("Block Number") }
+                value = department.value,
+                onValueChange = { department.value = it },
+                label = { Text("Department") }
             )
 
             Spacer(modifier = Modifier.height(15.dp))
@@ -177,9 +152,9 @@ fun SignUpContent(navController: NavController) {
 
 @Preview(showBackground = true)
 @Composable
-fun ScreenPreview2() {
+fun ScreenPreview() {
     val navController = rememberNavController()
     MyApplicationTheme {
-        SignUpContent(navController)
+        StaffSignUpContent(navController)
     }
 }

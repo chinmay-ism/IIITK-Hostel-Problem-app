@@ -33,19 +33,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.ui.theme.Purple40
 
 @Composable
 fun LoginPage(navController: NavController) {
 
     Column {
-        Box(modifier = Modifier.fillMaxWidth()){
+        Box(modifier = Modifier.fillMaxWidth()) {
             val image = painterResource(id = R.drawable.favicon)
-            Image(painter = image, contentDescription =null, modifier = Modifier
-                .align(Alignment.Center)
-                .padding(top = 50.dp)
-                .size(150.dp))
+            Image(
+                painter = image, contentDescription = null, modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(top = 50.dp)
+                    .size(130.dp)
+            )
         }
 
         Column(
@@ -68,7 +70,7 @@ fun LoginPage(navController: NavController) {
                 style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold)
             )
 
-            Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
             TextField(
                 label = { Text(text = "Username") },
@@ -85,12 +87,12 @@ fun LoginPage(navController: NavController) {
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
             )
 
-            Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                 Button(
                     onClick = {
-                              navController.navigate("profile")
+                        navController.navigate("profile")
                     },
                     shape = RoundedCornerShape(50.dp),
                     modifier = Modifier
@@ -113,10 +115,22 @@ fun LoginPage(navController: NavController) {
             )
 
             ClickableText(
-                text = AnnotatedString("Signup Here"),
+                text = AnnotatedString("Student Signup"),
                 modifier = Modifier
                     .padding(20.dp),
                 onClick = { navController.navigate("signup") },
+                style = TextStyle(
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily.Default,
+                    textDecoration = TextDecoration.Underline,
+                    color = Purple40
+                )
+            )
+
+            ClickableText(
+                text = AnnotatedString("Staff Signup"),
+                modifier = Modifier,
+                onClick = { navController.navigate("staffSignup") },
                 style = TextStyle(
                     fontSize = 14.sp,
                     fontFamily = FontFamily.Default,
@@ -128,11 +142,10 @@ fun LoginPage(navController: NavController) {
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun ScreenPreview2() {
-    MyApplicationTheme {
-        ScreenMain()
-
-    }
+    val navController = rememberNavController()
+    LoginPage(navController = navController)
 }
