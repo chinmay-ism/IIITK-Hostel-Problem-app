@@ -8,9 +8,9 @@
         <img src="./Screenshots/StdntSignup.png" alt="Signup Screenshot"  width="auto" height="500">
     </div>
    <div class="grid-item">
-        <img src="./Screenshots/StaffDashboard.jpg" alt="Staff Signup screen"  width="auto" height="500">
+        <img src="./Screenshots/StaffDashboard.png" alt="Staff Signup screen"  width="auto" height="500">
     </div>
     <div class="grid-item">
-        <img src="./Screenshots/Profile.jpg" alt="Dashboard Screenshot 1" width="auto" height="500">
+        <img src="./Screenshots/Profile.png" alt="Dashboard Screenshot 1" width="auto" height="500">
     </div>
 </div>
