@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.myapplication.pages.ForgotPassword
 import com.example.myapplication.pages.ProfilePg
 import com.example.myapplication.pages.SignUp
 import com.example.myapplication.pages.StaffSignup
@@ -44,8 +45,7 @@ fun ScreenMain() {
         composable("signup") { SignUp(navController = navController)}
         composable("profile") { ProfilePg(navController = navController) }
         composable("staffSignup") { StaffSignup(navController = navController) }
-
-        //        composable("forgot-password") { ForgotPassword(navController = navController)}
+        composable("forgot-password") { ForgotPassword(navController = navController)}
     }
 }
 
