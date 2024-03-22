@@ -1,4 +1,4 @@
-**#IIIK-Hostel-Problem-APP**
+#IIIK-Hostel-Problem-APP
 
 ## Overview
 This project is an Android application developed using Kotlin and Jetpack Compose to address the issues faced by students living in the IIIT Kota College hostel. It provides a systematic way for students to report various hostel-related problems. Additionally, it features a separate dashboard for staff members to address these reported issues efficiently.
